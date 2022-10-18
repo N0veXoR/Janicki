@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie</title>
+    <link rel="stylesheet" type="text/css" href="../css/styl.css">
+    <link rel="stylesheet" type="text/css" href="../css/css2.css">
+    
+</head>
+<body>
+    <div id="container">
+    <div id="menu">
+        <ul>
+            <li><a href="galeria1.html">Postacie Disneya</a></li>
+            <li><a href="galeria2.html">Ryby Oceaniczne</a></li>
+            <li><a href="galeria3.html">Jadowite Węże</a></li>
+            <li><a href="galeria4.html">Znane Obrazy</a></li>
+            <li><a href="galeria5.html">Bohaterowie Marvela</a></li>
+        </ul>
+    </div>
+    <div id="main">
+         <div class="stack">
+    <div class="imagewrap">
+      <img src="" class="confirmed" />
+    </div>
+    <div class="imagewrap">
+      <img src="" class="confirmed" />
+    </div>
+    <div class="imagewrap">
+      <img src="" class="confirmed" />
+    </div>
+    <div class="imagewrap">
+      <img src="" class="confirmed" />
+    </div>
+    <div class="imagewrap">
+      <img src="" class="confirmed" />
+    </div>
+  </div>
+        <script src="src=https://cdpn.io/cpe/boomboom/pen.js?key=pen.js-1c813a9b-dee4-2110-a2d1-6e542d778ad7"></script>
+        <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+        var autorotate = true;
+function rotate(el) {
+  $(".stack .imagewrap.selected").removeClass("selected");
+  el.addClass("selected");
+  setTimeout(function () {
+    $(".stack").prepend($(".stack .imagewrap.selected"));
+    setTimeout(function () {
+      $(".stack .imagewrap.selected").removeClass("selected");
+    }, 200);
+  }, 250);
+}
+function loadactions() {
+  $("body")
+    .off("click", ".stack .imagewrap:not(:first-child)")
+    .on("click", ".stack .imagewrap:not(:first-child)", function () {
+      $(".stack .imagewrap.selected").removeClass("selected");
+      $(this).addClass("selected");
+      setTimeout(function () {
+        $(".stack").prepend($(".stack .imagewrap.selected"));
+        setTimeout(function () {
+          $(".stack .imagewrap.selected").removeClass("selected");
+        }, 200);
+      }, 250);
+    });
+}
+
+$(function () {
+  loadactions();
+  if (autorotate == true) {
+    setInterval(function () {
+      rotate($(".stack .imagewrap:last-child"));
+    }, 1500);
+  }
+});
+</script>
+    </div>
+<div id="stopka">
+    Stronę wykonał: Adrian Kaźmierczak
+</div>
+</div>
+</body>
+</html>

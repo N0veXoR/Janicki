@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie</title>
+    <link rel="stylesheet" type="text/css" href="../css/styl.css">
+    <link rel="stylesheet" type="text/css" href="../css/css4.css">
+    <script src="lib/jquery-2.0.3.js"></script>
+    <link rel="stylesheet" href="src/css/swipebox.css">
+<script src="src/js/jquery.swipebox.js"></script>
+</head>
+<body>
+    <div id="container">
+    <div id="menu">
+        <ul>
+            <li><a href="galeria1.html">Postacie Disneya</a></li>
+            <li><a href="galeria2.html">Ryby Oceaniczne</a></li>
+            <li><a href="galeria3.html">Jadowite Węże</a></li>
+            <li><a href="galeria4.html">Znane Obrazy</a></li>
+            <li><a href="galeria5.html">Bohaterowie Marvela</a></li>
+        </ul>
+    </div>
+    <div id="main">
+        <a href="big/image.jpg" class="swipebox" title="My Caption">
+<img src="small/image.jpg" alt="image">
+</a>
+        <script type="text/javascript">
+;( function( $ ) {
+
+	$( '.swipebox' ).swipebox();
+
+} )( jQuery );
+</script>
+    </div>
+    <div id="stopka">
+        Stronę wykonał: Adrian Kaźmierczak
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+.conteiner{
+  max-width:100%;
+  margin:0 auto;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-size:14px;
+}
+.conteiner .element{
+  height:100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 10%;
+  float: left;
+  border-radius: 40px;
+  position:relative;
+  transition-duration:1s;
+}
+.conteiner .element .text{
+  position:absolute;
+  bottom: 14px;
+  width: 100%;
+}
+.conteiner .element .text i.fa-solid{
+    background: #fff;
+    padding: 12px;
+    font-size: 30px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+    width: 34px;
+    height: 34px;
+    border: 5px solid #ccc;
+}
+.conteiner .element .text i.fa-solid:hover{
+  -webkit-filter: opacity(80%); 
+filter: opacity(80%);
+}
+.conteiner .element .text .in{
+  display:none;
+  width: 100%;
+  max-width: 260px;
+  left: 86px;
+  bottom: 0;
+  position: absolute;
+  background: rgb(227 227 227 / 72%);
+  height:35px;
+  padding: 10px;
+  border-radius:8px;
+  transition-duration:2s;
+  visibility: hidden;
+      overflow: hidden;
+}
+.conteiner .element .text .in p{
+  margin:0;
+}
+.conteiner .element.active .text .in{
+  display:block;
+  visibility: visible;
+  transition-duration:0.2s;
+}
+.conteiner .element.active{
+  width:40%;
+}
+.conteiner .element.active .text i.fa-solid{
+  margin:0 7px;
+}
+.conteiner .element.active .text .fa-hand-pointer:before{
+  text-shadow:4px 4px 2px #ccc;
+}
+@media only screen and (max-width: 860px) { 
+.conteiner .element .text i.fa-solid{
+    font-size: 22px;
+  padiing: 2px;
+      width: 8px;
+    height: 8px;
+  }
+  .conteiner .element{
+        width: 8%;
+  }
+  .conteiner .element.active{
+    width:50%;
+  }
+  .conteiner .element.active .text .in{
+  display:none;
+}
+}

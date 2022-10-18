@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie</title>
+    <link rel="stylesheet" type="text/css" href="../css/styl.css">
+    <link rel="stylesheet" type="text/css" href="../css/css3.css">
+</head>
+<body>
+    <div id="container">
+    <div id="menu">
+        <ul>
+            <li><a href="galeria1.html">Postacie Disneya</a></li>
+            <li><a href="galeria2.html">Ryby Oceaniczne</a></li>
+            <li><a href="galeria3.html">Jadowite Węże</a></li>
+            <li><a href="galeria4.html">Znane Obrazy</a></li>
+            <li><a href="galeria5.html">Bohaterowie Marvela</a></li>
+        </ul>
+    </div>
+    <div id="main">
+<ul class="gallery">
+    <li class="thumbnail">
+        <img tabindex="0" src="https://dinoanimals.pl/wp-content/uploads/2014/03/Jadowite-weze2-949x475.jpg" alt="" />
+    </li>
+    <li class="thumbnail">
+        <img tabindex="0" src="https://www.zwierzosfera.pl/wp-content/uploads/2017/11/zmija.jpg" alt="" />
+    </li>
+    <li class="thumbnail">
+        <img tabindex="0" src="https://th.bing.com/th/id/R.71ea240bf4f9182e503e9e981633aeee?rik=jVel6VMSSKiZ2w&riu=http%3a%2f%2ffiling.pl%2fwp-content%2fuploads%2f2014%2f07%2f640x359xfiling_images_68a6386b8636.jpg.pagespeed.ic.rcSwGKyPDG.jpg&ehk=aXyQ6591r6lCqfRxHyuSi%2bBG54AuOTDbo3O64%2bFYP2s%3d&risl=&pid=ImgRaw&r=0" alt="" />
+    </li>
+    <li class="thumbnail">
+        <img tabindex="0" src="https://797834.smushcdn.com/1552482/wp-content/uploads/2021/06/ItjktkpTURBXy80MGRhNzM3MGZkNzMwNTU5MzM2ODc3ZmM0OGViNDk5Mi5qcGeRkwXNBLDNAnM-1122x586.jpg?lossy=1&strip=1&webp=1" alt="" />
+    </li>
+    <li class="thumbnail">
+        <img tabindex="0" src="https://th.bing.com/th/id/R.599505e34ce930a309e2a6fec0cbfd79?rik=scvVsUOc%2fLTO6g&riu=http%3a%2f%2ffiling.pl%2fwp-content%2fuploads%2f2014%2f07%2f640x480xfiling_images_02ab75220ade.jpg.pagespeed.ic.48KV2Mu6hw.jpg&ehk=HNuqsESPSDn6rSdjg5FcQVNej1W28To39YPYMdnyOug%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" />
+    </li>
+    <li class="thumbnail">
+        <img tabindex="0" src="https://r-http-17.dcs.redcdn.pl/http/o2/tvn/web-content/m/p5/i/6e62a992c676f611616097dbea8ea030/a6b2213e-cf57-4363-8515-d0a17f6eaaf2.jpg" alt="" />
+    </li>
+    <li class="thumbnail">
+        <img tabindex="0" src="https://ocdn.eu/pulscms-transforms/1/qWkk9kqTURBXy8zMWYzYmZiZmFlMWIwNDhiMWJlZWQwODVhNDdkNWJmMi5qcGVnkZMCzQNIAIKhMAGhMQE" alt="" />
+    </li>
+    <li class="thumbnail">
+        <img tabindex="0" src="https://zwierzetainformacje.pl/wp-content/uploads/2016/10/w%C4%99%C5%BCe-w-polsce-lista-w%C4%99%C5%BCy.jpg" alt="" />
+    </li>
+    <li class="thumbnail">
+        <img tabindex="0" src="https://ocdn.eu/pulscms-transforms/1/H8Hk9kpTURBXy9jNmJlMjVkNGI5MWI2OGE5ZWIyZGQxNzI2ZjA1NGVlYi5qcGeTlQMAzQG8zRCkzQldkwmmY2Y2ZjQ0BpMFzQSwzQJ2gaEwAQ/jadowity-waz-w-zlewie-u-mezczyzny-z-australii.jpg" alt="" />
+    </li>
+</ul>
+<div class="popup hidden">
+    <button aria-label="Zamknij popup" class="popup__close">X</button>
+    <img src="" alt="" class="popup__img" />
+    <button
+        aria-label="Poprzednie zdjęcie"
+        class="popup__arrow popup__arrow--left"
+    >
+        >
+    </button>
+    <button
+        aria-label="Następne zdjęcie"
+        class="popup__arrow popup__arrow--right"
+    >
+        >
+    </button>
+</div>
+<script>
+    const THUMBNAILS = document.querySelectorAll(".thumbnail img");
+const POPUP = document.querySelector(".popup");
+const POPUP_CLOSE = document.querySelector(".popup__close");
+const POPUP_IMG = document.querySelector(".popup__img");
+const ARROW_LEFT = document.querySelector(".popup__arrow--left");
+const ARROW_RIGHT = document.querySelector(".popup__arrow--right");
+
+let currentImgIndex;
+
+const showNextImg = () => {
+    if (currentImgIndex === THUMBNAILS.length - 1) {
+        currentImgIndex = 0;
+    } else {
+        currentImgIndex++;
+    }
+    POPUP_IMG.src = THUMBNAILS[currentImgIndex].src;
+};
+
+const showPreviousImg = () => {
+    if (currentImgIndex === 0) {
+        currentImgIndex = THUMBNAILS.length - 1;
+    } else {
+        currentImgIndex--;
+    }
+    POPUP_IMG.src = THUMBNAILS[currentImgIndex].src;
+};
+
+const closePopup = () => {
+    POPUP.classList.add("fade-out");
+    setTimeout(() => {
+        POPUP.classList.add("hidden");
+        POPUP.classList.remove("fade-out");
+        THUMBNAILS.forEach((element) => {
+            element.setAttribute("tabindex", 1);
+        });
+    }, 300);
+};
+
+THUMBNAILS.forEach((thumbnail, index) => {
+    const showPopup = (e) => {
+        POPUP.classList.remove("hidden");
+        POPUP_IMG.src = e.target.src;
+        currentImgIndex = index;
+        THUMBNAILS.forEach((element) => {
+            element.setAttribute("tabindex", -1);
+        });
+    };
+
+    thumbnail.addEventListener("click", showPopup);
+
+    thumbnail.addEventListener("keydown", (e) => {
+        if (e.code === "Enter" || e.keyCode === 13) {
+            showPopup(e);
+        }
+    });
+});
+
+POPUP_CLOSE.addEventListener("click", closePopup);
+
+ARROW_RIGHT.addEventListener("click", showNextImg);
+
+ARROW_LEFT.addEventListener("click", showPreviousImg);
+
+document.addEventListener("keydown", (e) => {
+    if (!POPUP.classList.contains("hidden")) {
+        if (e.code === "ArrowRight" || e.keyCode === 39) {
+            showNextImg();
+        }
+
+        if (e.code === "ArrowLeft" || e.keyCode === 37) {
+            showPreviousImg();
+        }
+
+        if (e.code === "Escape" || e.keyCode === 27) {
+            closePopup();
+        }
+    }
+});
+
+POPUP.addEventListener("click", (e) => {
+    if (e.target === POPUP) {
+        closePopup();
+    }
+});
+</script>
+</div>
+<div id="stopka">
+    Stronę wykonał: Adrian Kaźmierczak
+</div>
+</div>
+</body>
+</html>
